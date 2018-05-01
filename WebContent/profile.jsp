@@ -41,16 +41,12 @@
 		
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             	<ul class="nav navbar-nav navbar-right">
-              	<li><a href="#">About</a></li>
               	<li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                 	<li><a href="profile.html">Profile</a></li>
-                  	<li><a href="MatchHistory.html">Match History</a></li>
-                  	<li><a href="#">Live Game Information</a></li>
                 </ul>
               	</li>
-              	<li><a href="#">Contact</a></li>
             	</ul>
             </div>
         	</div>
@@ -64,7 +60,7 @@
 				<%
 					
 					Summoner summoner = (Summoner) session.getAttribute("profile");
-					out.write("<p><img class=\"img-circle-profile\" hspace='20' src=\"http://ddragon.leagueoflegends.com/cdn/8.8.2/img/profileicon/" + summoner.getProfileIconID() + ".png\" width='100px' height='100px'>Quantex (" + summoner.getSummonerLevel() + ")</p>");
+					out.write("<p><img class=\"img-circle-profile\" hspace='20' src=\"http://ddragon.leagueoflegends.com/cdn/8.8.2/img/profileicon/" + summoner.getProfileIconID() + ".png\" width='100px' height='100px'>" + summoner.getName() + " (" + summoner.getSummonerLevel() + ")</p>");
 					
 				%>
 				

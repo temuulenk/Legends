@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="App">
 	<head>
     	<meta charset="utf-8">
     	<meta name="author" content="Temuulen Khurelbaatar">
@@ -13,6 +13,7 @@
     	<style>
       		body { padding-top: 50px; }    
     	</style>
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     
     	<title>League of Legends</title>
         
@@ -36,16 +37,12 @@
 		
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             	<ul class="nav navbar-nav navbar-right">
-              	<li><a href="#">About</a></li>
               	<li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                 	<li><a href="profile.html">Profile</a></li>
-                  	<li><a href="MatchHistory.html">Match History</a></li>
-                  	<li><a href="#">Live Game Information</a></li>
                 </ul>
               	</li>
-              	<li><a href="#">Contact</a></li>
             	</ul>
             </div>
         	</div>
@@ -56,14 +53,33 @@
     <div class="jumbotron">
     	<div class="container">
         	<p>
-        		<div class="form-group" action="MyServlet" method="get">
+        		<div ng-controller="Controller" class="form-group" action="MyServlet" method="get">
         			<form action="MyServlet" method="get">
-        				<input type="text" class="form-control" id="usernames" name="usernames" placeholder="Enter username">
+        				<input type="text" class="form-control" id="usernames" name="usernames" name="value" ng-model="value" ng-blur="getPlace()" placeholder="Enter username">
         				</br>
         				<button type="submit" class="btn btn-primary btn">Search</button>
         			</form>
         		</div>
-        	
+        		
+        		<script>
+      			function Controller($scope) {
+      		         $scope.getPlace = function() {
+      		        	 	console.log($scope.value);
+      		        	 	term = "\[0-9\\p{L} _\\.]+$";
+      		        	 	var pattern = new RegExp("^" + term + ".*","i");
+      		        		if(pattern.test(($scope.value)) == false) {
+      		        		    console.log("Valid");
+      		        		}else {
+      		        			alert("Invalid username");
+      		        		}
+      		         }
+      				
+         		}
+				           
+      			var app = angular.module('App', []);
+      			app.controller('Controller', Controller);
+   			</script>
+   			
         	<!-- 
           	<div class="form-group">
   				<label for="username">Enter your name</label>
