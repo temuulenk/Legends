@@ -1,0 +1,43 @@
+
+
+.card {
+	max-width: 90wh;
+	padding: 10px;
+	box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, .3);
+}
+
+.img-circle-profile {
+	border-radius: 50%;
+	border: 2px solid #f1c40f;
+	padding: 1px;
+}
+
+.img-circle-ally {
+	border-radius: 50%;
+	border: 2px solid #2980b9;
+	padding: 1px;
+	float: left;
+}
+
+.img-circle-enemy {
+	border-radius: 50%;
+	border: 2px solid #c0392b;
+	padding: 1px;
+	float: left;
+}
+
+
+.img-circle-matchlist {
+	border-radius: 50%;
+	border: 2px solid #f1c40f;
+	padding: 1px;
+	position: relative;
+	left: 30px;
+}
+
+.a-test {
+	position: relative;
+	left: 60px;
+	cursor: pointer;
+}
+
