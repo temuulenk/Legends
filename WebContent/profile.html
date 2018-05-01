@@ -61,6 +61,24 @@
         			</form>
         		</div>
         		
+        		<div id="aboutme">
+        			<form>
+				  	<p>Click button to load about me</p>
+				  	<button type="button" onclick="loadAboutMe()">Change Content</button>
+					</form>
+				</div>
+
+			<script>
+				function loadAboutMe() {
+				 	var request = new XMLHttpRequest();
+				 	request.onreadystatechange = function() {
+				     	document.getElementById("aboutme").innerHTML = this.responseText;
+				  	};
+				  	request.open("GET", "aboutme.txt", true);
+				  	request.send();
+				}
+			</script>
+        		
         		<script>
       			function Controller($scope) {
       		         $scope.getPlace = function() {
@@ -78,7 +96,7 @@
 				           
       			var app = angular.module('App', []);
       			app.controller('Controller', Controller);
-   			</script>
+   				</script>
    			
         	<!-- 
           	<div class="form-group">
